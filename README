@@ -1,0 +1,20 @@
+Migration Doctrine :
+
+Script d'automatisation de génération des classes de migration
+Doctrine pour Symfony 1.x. Nécessite Fabric. Et Git.
+
+Fonctionnement :
+  Appelez le script avec en argument un tag, commit... passé à partir
+  duquel vous voulez comparer l'évolution de votre schema.
+  Le script va voir si des modifs sur un schema (général ou plugin) a
+  été effectuée. Si oui :
+      - copie des schema actuel en tmp
+      - checkout du commit/branch en paramètre
+      - rebuild des classes à l'ancienne version des schemas
+      - copie du tmp des nouveaux schema
+      - génération des classes de migration
+      - checkout force sur la branche d'origine (ATTENTION si vous aviez
+          des modifications non commit)
+      - rebuild des classes basé sur les nouveaux schemas
+
+Auteur : Simon Hostelet. www.erreur500.com
